@@ -7,3 +7,17 @@
     }
 
 
+
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+        let itemToDelete = tableItems[indexPath.row]
+        managedObjectContext?.deleteObject(itemToDelete)
+        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        }
+        
+    }
+  
