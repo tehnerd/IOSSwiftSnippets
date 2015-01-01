@@ -20,4 +20,9 @@
         }
         
     }
-  
+
+    //indexPath of cell, which was tapped (or any other gesture)
+    ... {
+        let loc: CGPoint = sender.locationInView(self.tableView)
+        let indexPath: NSIndexPath = self.tableView.indexPathForRowAtPoint(loc)!
+    }
