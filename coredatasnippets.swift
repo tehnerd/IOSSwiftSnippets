@@ -18,13 +18,16 @@ class LogItem: NSManagedObject {
 
     @NSManaged var title: String
     @NSManaged var itemText: String
-    
+
+}    
+extension LogItem {
     class func createInManagementObjectContext(moc: NSManagedObjectContext, title: String, itemText: String) -> LogItem{
         let newItem = NSEntityDescription.insertNewObjectForEntityForName("LogItem", inManagedObjectContext: moc) as LogItem
         newItem.title = title
         newItem.itemText = itemText
         return newItem
     }
+
     
     class func insertNewItem(moc: NSManagedObjectContext, title: String) -> LogItem{
         let fetchRequest = NSFetchRequest(entityName: "LogItem")
