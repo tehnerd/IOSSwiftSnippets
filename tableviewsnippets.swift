@@ -21,3 +21,18 @@
         
     }
 
+
+//table view on custom uiview
+//must implement protocols (at least):
+ UITableViewDataSource, UITableViewDelegate
+
+//and functions:
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell1", forIndexPath: indexPath) as UITableViewCell
+        return cell
+        
+    }
+// after that you must wire tableview (cntr+drag @ storryboard) to your view controller
